@@ -7,7 +7,6 @@
 body{
     background-color: #f8f9fa;
     font-family:'Lexend', sans-serif;
-    display: flex;
 }
 
 ul{
@@ -17,6 +16,10 @@ ul{
     display: table;
     content: '';
     clear: both;
+}
+
+#vue{
+    display: flex;
 }
 
 /* Proprietà header */
@@ -85,6 +88,7 @@ header .search-box{
 .chat-list{
     height: calc(100vh -  151px);
     background-color: white;
+    overflow-y: auto;
 }
 
 /* Elemento chatlist */

@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- JQuery
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 
     <!-- Vue CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -24,73 +24,75 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <!-- Sezione profilo -->
-        <section class="profile">
-            <img src="img/profile.jpg" alt="Profile image">
-            <div class="head-icons">
-                <i class="fas fa-circle-notch"></i>
-                <i class="fas fa-comment-alt"></i>
-                <i class="fas fa-ellipsis-v"></i>
-            </div>
-        </section>
-
-        <!-- Sezione barra di ricerca -->
-        <section class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
-        </section>
-
-        <!-- Sezione lista chat -->
-        <section class="chat-list">
-            <ul>
-                <li>
-                    <img src="img/profile.jpg" alt="">
+    <div id="vue">
+        <header>
+            <!-- Sezione profilo -->
+            <section class="profile">
+                <img src="img/profile.jpg" alt="Profile image">
+                <div class="head-icons">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </section>
     
-                    <div>
-                        <div class="name-text">
-                            <h3>Martino</h3>
-                            <h4>ciao come staiadsa  adasd asd asd ad?</h4>
-                        </div>
-                        <h45 class="msgTime">1:40</h5>
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </header>
-    
-
-    <!-- Main con chat selezionata -->
-    <main>
-        <!-- Header profilo contatto -->
-        <section class="profile-sender">
-            <div>
-                <img src="img/profile.jpg" alt="">
-                <span class="name" >Martino Scalvini</span>
-            </div>
-
-            <div>
-                <i class="fas fa-ellipsis-v"></i>
+            <!-- Sezione barra di ricerca -->
+            <section class="search-box">
                 <i class="fas fa-search"></i>
-            </div>
-        </section>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
+            </section>
     
-        <!-- Chat con contatto -->
-        <section class="chat">
-            <ul class="clearfix">
-                <li class="msg">Ciao</li>
-                <li class="msg sent">Come stai?</li>
-            </ul>
-        </section>
-
-        <!-- Scrittura e invio msg -->
-        <section class="send-msg">
-            <i class="far fa-smile"></i>
-            <i class="fas fa-paperclip"></i>
-            <input type="text" placeholder="Scrivi un messaggio">
-            <i class="fas fa-microphone"></i>
-        </section>
-
-    </main>
+            <!-- Sezione lista chat -->
+            <section class="chat-list">
+                <ul>
+                    <li v-for="contact in contacts">
+                        <img :src="contact.imgSrc" :alt="contact.name">
+        
+                        <div>
+                            <div class="name-text">
+                                <h3>{{contact.name}}</h3>
+                                <h4>{{contact.messages[contact.messages.length -1].text}}</h4>
+                            </div>
+                            <h45 class="msgTime">1:40</h5>
+                        </div> 
+                    </li>
+                </ul>
+            </section>
+        </header>
+        
+    
+        <!-- Main con chat selezionata -->
+        <main>
+            <!-- Header profilo contatto -->
+            <section class="profile-sender">
+                <div>
+                    <img src="img/profile.jpg" alt="">
+                    <span class="name" >Martino Scalvini</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-ellipsis-v"></i>
+                    <i class="fas fa-search"></i>
+                </div>
+            </section>
+        
+            <!-- Chat con contatto -->
+            <section class="chat">
+                <ul class="clearfix">
+                    <li class="msg">Ciao</li>
+                    <li class="msg sent">Come stai?</li>
+                </ul>
+            </section>
+    
+            <!-- Scrittura e invio msg -->
+            <section class="send-msg">
+                <i class="far fa-smile"></i>
+                <i class="fas fa-paperclip"></i>
+                <input type="text" placeholder="Scrivi un messaggio">
+                <i class="fas fa-microphone"></i>
+            </section>
+    
+        </main>
+    </div>
 </body>
 </html>
