@@ -126,11 +126,11 @@ header .search-box{
     padding: 0 20px;
 }
     /* Nome*/
-.name-text h3{
+.name-text h4{
     font-weight: 600;
 }
     /* Testo ultimo msg*/
-.name-text h4{
+.name-text h5{
     font-weight: 400;
     color: #b4b4b4;
 }
@@ -148,10 +148,40 @@ main{
     flex-basis: calc(100% - 30%);
     height: 100vh;
     min-width: 450px;
+    position: relative;
+}
+
+/* Sfondo a chat non ancora selezionata */
+#main-back {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    text-align: center;
+}
+#main-back img{
+    width: 300px;
+}
+#main-back h2{
+    font-weight: 400;
+    color: #5f6060;
+    margin: 20px 0;
+}
+#main-back p{
+    color: #b5b6b6;
+    font-size: 15px;
+}
+
+/* Quando diventa attiva una chat */
+main.active{
     background-image: url('../img/wall2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.active .profile-sender, .active .chat, .active .send-msg{
+    visibility: visible;
 }
 
 /* Header profilo mittente */
@@ -164,6 +194,7 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    visibility: hidden;
 }
 .profile-sender img{
     width: 70px;
@@ -190,6 +221,7 @@ main .chat{
     height: calc(100% - 160px);
     display: flex;
     align-items: flex-end;
+    visibility: hidden;
 }
 
 /* Lista messaggi in coversazione */
@@ -218,6 +250,7 @@ main .chat{
     height: 70px;
     background-color: #f0f0f0;
     padding: 10px 20px;
+    visibility: hidden;
 }
 .send-msg i{
     font-size: 30px;
