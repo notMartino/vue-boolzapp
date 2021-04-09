@@ -25,40 +25,71 @@
 </head>
 <body>
     <header>
+        <!-- Sezione profilo -->
         <section class="profile">
             <img src="img/profile.jpg" alt="Profile image">
-            <div class="head-icons clearfix">
-                <i class="fas fa-ellipsis-v"></i>
-                <i class="fas fa-comment-alt"></i>
+            <div class="head-icons">
                 <i class="fas fa-circle-notch"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
             </div>
         </section>
 
+        <!-- Sezione barra di ricerca -->
         <section class="search-box">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Cerca o inizia una nuova chat">
         </section>
-    </header>
 
-    <!-- Sezione lista chat -->
-    <section class="chat-list">
-        <ul>
-            <li>
-                <img src="img/profile.jpg" alt="Martino">
-
-                <div>
-                    <div class="name-text">
-                        <h3>Martino</h3>
-                        <h4>ciao come staiadsa  adasd asd asd ad?</h4>
+        <!-- Sezione lista chat -->
+        <section class="chat-list">
+            <ul>
+                <li>
+                    <img src="img/profile.jpg" alt="">
+    
+                    <div>
+                        <div class="name-text">
+                            <h3>Martino</h3>
+                            <h4>ciao come staiadsa  adasd asd asd ad?</h4>
+                        </div>
+                        <h45 class="msgTime">1:40</h5>
                     </div>
-                    <h4 class="msgTime">1:40</h4>
-                </div>
-            </li>
-        </ul>
-    </section>
+                </li>
+            </ul>
+        </section>
+    </header>
+    
 
     <!-- Main con chat selezionata -->
     <main>
+        <!-- Header profilo contatto -->
+        <section class="profile-sender">
+            <div>
+                <img src="img/profile.jpg" alt="">
+                <span class="name" >Martino Scalvini</span>
+            </div>
+
+            <div>
+                <i class="fas fa-ellipsis-v"></i>
+                <i class="fas fa-search"></i>
+            </div>
+        </section>
+    
+        <!-- Chat con contatto -->
+        <section class="chat">
+            <ul class="clearfix">
+                <li class="msg">Ciao</li>
+                <li class="msg sent">Come stai?</li>
+            </ul>
+        </section>
+
+        <!-- Scrittura e invio msg -->
+        <section class="send-msg">
+            <i class="far fa-smile"></i>
+            <i class="fas fa-paperclip"></i>
+            <input type="text" placeholder="Scrivi un messaggio">
+            <i class="fas fa-microphone"></i>
+        </section>
 
     </main>
 </body>

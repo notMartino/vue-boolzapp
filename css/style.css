@@ -6,7 +6,8 @@
 }
 body{
     background-color: #f8f9fa;
-    font-family:'Lexend', sans-serif;;
+    font-family:'Lexend', sans-serif;
+    display: flex;
 }
 
 ul{
@@ -20,32 +21,34 @@ ul{
 
 /* Proprietà header */
 header{
-    width: 30%;
+    height: 100vh;
+    flex-basis: 30%;
     min-width: 350px;
-    height: 150px;
 }
 
 /* Sezione profilo */
 header .profile{
     background-color: #ededed;
     padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .profile img{
     width: 70px;
+    height: 70px;
     border-radius: 100%;
-    vertical-align: middle;
     cursor: pointer;
 }
 .profile .head-icons{
-    width: calc(100% - 80px);
-    display: inline-block;
-    vertical-align: middle;
+    width: 130px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 .head-icons i{
-    float: right;
     font-size: 20px;
     color: #919191;
-    margin: 0 18px;
     cursor: pointer;
 }
 
@@ -54,6 +57,7 @@ header .search-box{
     padding: 10px 20px;
     background-color: #f6f6f6;
     position: relative;
+    border-bottom: 1px solid #ebebeb;
 }
 .search-box i{
     color: #919191;
@@ -62,8 +66,7 @@ header .search-box{
     top: 50%;
     transform: translateY(-50%);
 }
-
-.search-box input{
+.search-box input, .send-msg input{
     width: 100%;
     height: 40px;
     border-width: 0;
@@ -72,6 +75,7 @@ header .search-box{
     outline: none;
     font-size: 14px;
     color: #919191;
+    font-family:'Lexend', sans-serif;
 }
 .search-box input::placeholder{
     color: #a7a7a7;
@@ -79,22 +83,30 @@ header .search-box{
 
 /* Sezione lista chat */
 .chat-list{
-    width: 30%;
-    min-width: 350px;
-    height: calc(100vh -  150px);
-    padding: 0 20px;
+    height: calc(100vh -  151px);
     background-color: white;
 }
+
+/* Elemento chatlist */
 .chat-list li{
+    padding: 0 20px;
     display: flex;
     align-items: center;
     height: 100px;
+    cursor: pointer;
 }
+.chat-list li:hover{
+    background-color: #f2f2f2;
+}
+
+/* Immagine mittente */
 .chat-list li img{
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    border-radius: 100%;
 }
+
+/* Contenitore a destra dell'img con nome, testo e orario msg */
 .chat-list li > div{
     flex-basis: calc(100% - 80px);
     height: 100%;
@@ -104,24 +116,115 @@ header .search-box{
     border-bottom: 1px solid #f2f2f2;
 }
 
+    /* Nome e testo mittente */
 .chat-list li .name-text{
-    flex-basis: calc(100% - 20px);
+    flex-basis: calc(100% - 40px);
     padding: 0 20px;
 }
+    /* Nome*/
 .name-text h3{
     font-weight: 600;
 }
+    /* Testo ultimo msg*/
 .name-text h4{
     font-weight: 400;
     color: #b4b4b4;
 }
 
+/* Ora ultimo msg */
 .chat-list .msgTime{
-    max-width: 40px;
+    flex-basis: 40px;
     color: #9b9b9b;
     font-weight: normal;
-}
-/* .chat-list li div:last-child{
-    width: 80%;
     text-align: right;
-} */
+}
+
+/* Proprietà main */
+main{
+    flex-basis: calc(100% - 30%);
+    height: 100vh;
+    min-width: 450px;
+    background-image: url('../img/wall2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Header profilo mittente */
+.profile-sender{
+    height: 90px;
+    padding: 10px 20px;
+    border-left: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    background-color: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-sender img{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.profile-sender .name{
+    vertical-align: middle;
+}
+
+.profile-sender i{
+    font-size: 20px;
+    color: #919191;
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+
+/* Sezione di chat */
+main .chat{
+    padding: 10px 8%;
+    height: calc(100% - 160px);
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Lista messaggi in coversazione */
+.chat ul{
+    width: 100%;
+}
+
+/* Proprietà messaggio ricevuto/inviato*/
+.msg{
+    background-color:white;
+    padding: 15px;
+    min-height: 40px;
+    border-radius: 12px;
+    margin-top: 10px;
+    float: left;
+    clear: both;
+}
+/* Proprietà specifiche messaggio inviato */
+.msg.sent{
+    float: right;
+    background-color: #dcf8c6;
+}
+
+/* Sezione messaggio da inviare */
+.send-msg{
+    height: 70px;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+}
+.send-msg i{
+    font-size: 30px;
+    color: #919191;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+.send-msg input{
+    width: calc(100% - 150px);
+    height: 50px;
+    padding: 0 25px;
+    vertical-align: middle;
+}
