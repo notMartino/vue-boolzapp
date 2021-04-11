@@ -19,21 +19,21 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            delete: false,
+                            deleted: false,
                             date: '10/01/21',
                             hour: '15:30:00',
                             text: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
                         {
-                            delete: false,
+                            deleted: false,
                             date: '10/01/21',
                             hour: '15:50:00',
                             text: 'Ricordati di dargli da mangiare',
                             status: 'sent'
                         },
                         {
-                            delete: false,
+                            deleted: false,
                             date: '10/01/21', 
                             hour: '16:15:00',
                             text: "Mi manchi!",
@@ -47,21 +47,21 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            delete: false,
+                            deleted: false,
                             date: '20/03/21',
                             hour: '16:30:00',
                             text: 'Ciao come stai?',
                             status: 'sent'
                         },
                         {
-                            delete: false,
+                            deleted: false,
                             date: '20/03/21',
                             hour: '16:30:55',
                             text: 'Bene grazie! Stasera ci vediamo?',
                             status: 'received'
                         },
                         {
-                            delete: false,
+                            deleted: false,
                             date: '20/03/21',
                             hour: '16:35:00',
                             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
@@ -75,21 +75,21 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            delete: false,
+                            deleted: false,
                             date: '28/03/21',
                             hour: '10:10:40',
                             text: 'La Marianna va in campagna',
                             status: 'received'
                         },
                         {
-                            delete: false,
+                            deleted: false,
                             date: '28/03/21',
                             hour: '10:20:10',
                             text: 'Sicuro di non aver sbagliato chat?',
                             status: 'sent'
                         },
                         {
-                            delete: false,
+                            deleted: false,
                             date: '28/03/21',
                             hour: '16:15:22',
                             text: 'Ah scusa!',
@@ -103,14 +103,14 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            delete: false,
+                            deleted: false,
                             date: '10/01/21',
                             hour: '15:30:55',
                             text: 'Lo sai che ha aperto una nuova pizzeria?',
                             status: 'sent'
                         },
                         {
-                            delete: false,
+                            deleted: false,
                             date: '10/01/21',
                             hour: '15:50:00',
                             text: 'Si, ma preferirei andare al cinema',
@@ -152,8 +152,9 @@ function initVue() {
 
                 let text = 'Va bene!';
                 let status = 'received';
+                let deleted = false;
 
-                this.user.messages.push({date, hour, text, status});
+                this.user.messages.push({date, hour, text, status, deleted});
                 console.log(this.user.messages);
             },
             // Funzione invio messaggio
@@ -164,9 +165,10 @@ function initVue() {
 
                 let text = this.enterMsg;
                 let status = 'sent';
+                let deleted = false;
 
                 if(this.enterMsg.length > 0 && this.enterMsg[0] != ' '){
-                    this.user.messages.push({date, hour, text, status});
+                    this.user.messages.push({date, hour, text, status, deleted});
                     console.log(this.user.messages);
                     this.enterMsg = '';
                     setTimeout(this.answer, 2000);
@@ -174,11 +176,11 @@ function initVue() {
             },
             // Finestra rimuovi messagio compare
             deleteMsg: function (ms) {
-                ms.delete = true;
+                ms.deleted = true;
             },
             // Finestra rimuovi messagio scompare
             renewedMsg: function (ms) {
-                ms.delete = false;
+                ms.deleted = false;
             },
             // Rimozione messaggio
             deleteThisMsg: function (index) {
@@ -186,6 +188,7 @@ function initVue() {
                 this.msg.splice(index, 1);
                 if(this.msg.length == 0){
                     this.contacts.splice(this.indexUser, 1);
+                    this.activated = '';
                 }
                 console.log('Elem arr msg: ' + this.msg.length);
                 console.log(this.indexUser);

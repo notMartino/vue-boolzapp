@@ -95,7 +95,7 @@
                         {{ms.text}}
                         <div class="delete">
                             <i @click="deleteMsg(ms)" class="fas fa-chevron-down"></i>
-                            <div class="deleteMsg" :class="(ms.delete == true) ? 'active' : ''">
+                            <div class="deleteMsg" :class="(ms.deleted == true) ? 'active' : ''">
                                 <span @click="deleteThisMsg(index)">Delete</span>
                             </div>
                         </div>
