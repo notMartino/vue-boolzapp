@@ -96,8 +96,12 @@
                         <div class="delete">
                             <i @click="deleteMsg(ms)" class="fas fa-chevron-down"></i>
                             <div class="deleteMsg" :class="(ms.deleted == true) ? 'active' : ''">
-                                <span @click="deleteThisMsg(index)">Delete</span>
+                                <span @click="deleteThisMsg(index)">Rimuovi</span>
                             </div>
+                        </div>
+                        
+                        <div class="hour">
+                            {{ms.hour.slice(0,5)}}
                         </div>
                     </li>
                 </ul>

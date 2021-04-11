@@ -245,6 +245,17 @@ main .chat{
     background-color: #dcf8c6;
 }
 
+/* Orario ricezione del messaggio in chat*/
+.msg .hour{
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+    z-index: 5;
+    font-size: 10px;
+    color: #a0a0a0;
+}
+
+/* Freccia menu rimozione messaggio */
 .msg .delete{
     position: absolute;
     top: 50%;
@@ -259,10 +270,9 @@ main .chat{
     position: absolute;
     top: 15px;
     right: 0;
+    z-index: 900;
     display: none;
     background-color: white;
-    /* height: 40px; */
-    width: 80px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px 0 black;
