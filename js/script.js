@@ -156,6 +156,8 @@ function initVue() {
 
                 this.user.messages.push({date, hour, text, status, deleted});
                 console.log(this.user.messages);
+
+                this.scrollToBottom();
             },
             // Funzione invio messaggio
             enterMsgs: function () {
@@ -173,6 +175,8 @@ function initVue() {
                     this.enterMsg = '';
                     setTimeout(this.answer, 2000);
                 }
+
+                this.scrollToBottom();
             },
             // Finestra rimuovi messagio compare
             deleteMsg: function (ms) {
@@ -200,25 +204,12 @@ function initVue() {
                     format = '0' + format;
                 }
                 return format;
+            },
+            scrollToBottom() {
+                const container = this.$el.querySelector("ul.clearfix");
+                container.scrollTop = container.scrollHeight;
             }
-        },
-        // mounted() {
-        //     function orderBydate(contacts) {
-        //         let lastContact = 0;
-        //         let thisContact;
-        //         for (let i = 0; i < contacts.length; i++) {
-        //             // thisContact = contacts[i];
-        //             const dateMsg = contacts[i].messages[contacts[i].messages.length - 1].date;
-        //             console.log(dateMsg);
-        //             let hour = dateMsg.slice(0,2);
-        //             console.log(hour);
-        //             if(lastContact == 0){
-        //                 lastContact = contacts[i];
-        //             }
-        //         }
-        //     }
-        //     orderBydate(this.contacts);
-        // }
+        }
     });
 }
 
