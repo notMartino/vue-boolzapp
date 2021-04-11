@@ -17,7 +17,6 @@ ul{
     content: '';
     clear: both;
 }
-
 #vue{
     display: flex;
 }
@@ -217,7 +216,7 @@ main.active{
 
 /* Sezione di chat */
 main .chat{
-    padding: 10px 8%;
+    padding: 20px 8%;
     height: calc(100% - 160px);
     display: flex;
     align-items: flex-end;
@@ -232,18 +231,48 @@ main .chat{
 /* Proprietà messaggio ricevuto/inviato*/
 .msg{
     background-color:white;
-    padding: 15px;
+    padding: 15px 30px 15px 20px;
     min-height: 40px;
     border-radius: 12px;
     margin-top: 10px;
     float: left;
     clear: both;
+    position: relative;
 }
 /* Proprietà specifiche messaggio inviato */
 .msg.sent{
     float: right;
     background-color: #dcf8c6;
 }
+
+.msg .delete{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    z-index: 10;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color:  #a0a0a0;
+    font-size: 12px;
+}
+.msg .delete .deleteMsg{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: none;
+    background-color: white;
+    /* height: 40px; */
+    width: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 black;
+    font-size: 14px;
+    text-align: center;
+}
+.msg .delete .deleteMsg.active{
+    display: block;
+}
+
 
 /* Sezione messaggio da inviare */
 .send-msg{

@@ -39,13 +39,13 @@
             <!-- Sezione barra di ricerca -->
             <section class="search-box">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" v-model="search" placeholder="Cerca o inizia una nuova chat">
             </section>
     
             <!-- Sezione lista chat -->
             <section class="chat-list">
                 <ul>
-                    <li v-for="contact in contacts" @click="selectedChat(contact)">
+                    <li v-for="(contact, index) in research()" @click="selectedChat(contact, index)">
                         <img :src="contact.imgSrc" :alt="contact.name">
         
                         <div>
@@ -57,7 +57,7 @@
                                     {{contact.messages[contact.messages.length -1].text.slice(0, 10)}}<span v-if="contact.messages[contact.messages.length -1].text.length > 10">...</span>
                                 </h5>
                             </div>
-                            <h5 class="msgTime">{{contact.messages[contact.messages.length -1].date}}</h5>
+                            <h5 class="msgTime">{{contact.messages[contact.messages.length -1].hour.slice(0, 5)}}</h5>
                         </div> 
                     </li>
                 </ul>
@@ -91,13 +91,16 @@
             <!-- Chat con contatto -->
             <section class="chat">
                 <ul class="clearfix">
-                    <li class="msg" :class="ms.status" v-for="ms in msg">
+                    <li class="msg" :class="ms.status" v-for="(ms, index) in msg"  @mouseleave="renewedMsg(ms)">
                         {{ms.text}}
-                        <div></div>
+                        <div class="delete">
+                            <i @click="deleteMsg(ms)" class="fas fa-chevron-down"></i>
+                            <div class="deleteMsg" :class="(ms.delete == true) ? 'active' : ''">
+                                <span @click="deleteThisMsg(index)">Delete</span>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-
-
             </section>
     
             <!-- Scrittura e invio msg -->
