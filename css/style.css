@@ -106,6 +106,13 @@ header .search-box{
     height: calc(100vh -  151px);
     background-color: white;
     overflow-y: auto;
+    /* IE and Edge scroll-bar invisible */
+    -ms-overflow-style: none;  
+    /* Firefox  */
+    scrollbar-width: none;  
+}
+.chat-list::-webkit-scrollbar {
+    display: none;
 }
 
 /* Elemento chatlist */
