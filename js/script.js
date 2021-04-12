@@ -155,6 +155,10 @@ function initVue() {
                 }
             ]
         },
+        updated() {
+            const container = this.$el.querySelector(".chat ul");
+            container.scrollTop = container.scrollHeight;
+        },
         methods:{
             // Funzione filtro per nome cercato
             research: function () {
@@ -191,8 +195,6 @@ function initVue() {
 
                 this.user.messages.push({date, hour, text, status, deleted});
                 console.log(this.user.messages);
-
-                this.scrollToBottom();
             },
             // Funzione invio messaggio
             enterMsgs: function () {
@@ -210,13 +212,10 @@ function initVue() {
                     this.enterMsg = '';
                     setTimeout(this.answer, 2000);
                 }
-
-                this.scrollToBottom();
             },
             // Finestra rimuovi messagio compare
             deleteMsg: function (ms) {
                 ms.deleted = true;
-                // this.scrollToBottom;
             },
             // Finestra rimuovi messagio scompare
             renewedMsg: function (ms) {
@@ -241,10 +240,7 @@ function initVue() {
                 }
                 return format;
             },
-            scrollToBottom: function(){
-                const container = this.$el.querySelector(".chat ul");
-                container.scrollTop = container.scrollHeight;
-            }
+
         }
     });
 }
