@@ -14,7 +14,7 @@ function initVue() {
             indexUser: -1, // Indice in contacs dell'utente selected
             contacts: [
                 {
-                    name: 'Alessia Lee',
+                    name: 'Alessia Facchetti',
                     imgSrc: 'img/ale.jpg',
                     visible: true,
                     messages: [
@@ -36,8 +36,22 @@ function initVue() {
                             deleted: false,
                             date: '10/01/21', 
                             hour: '16:15:00',
-                            text: "Mi manchi!",
+                            text: "Si, appena arrivo a casa!",
                             status: 'received'
+                        },
+                        {
+                            deleted: false,
+                            date: '10/01/21', 
+                            hour: '16:30:00',
+                            text: "Stasera pizzetta easy??",
+                            status: 'received'
+                        },
+                        {
+                            deleted: false,
+                            date: '10/01/21', 
+                            hour: '17:20:00',
+                            text: "Yess, ho già chiamato!",
+                            status: 'sent'
                         }
                     ],
                 },
@@ -66,6 +80,20 @@ function initVue() {
                             hour: '16:35:00',
                             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'sent'
+                        },
+                        {
+                            deleted: false,
+                            date: '20/03/21',
+                            hour: '16:37:00',
+                            text: 'Domani ci sono vez!',
+                            status: 'sent'
+                        },
+                        {
+                            deleted: false,
+                            date: '20/03/21',
+                            hour: '16:42:00',
+                            text: 'Perfetto!!!',
+                            status: 'received'
                         }
                     ],
                 },
@@ -94,11 +122,18 @@ function initVue() {
                             hour: '16:15:22',
                             text: 'Ah scusa!',
                             status: 'received'
+                        },
+                        {
+                            deleted: false,
+                            date: '28/03/21',
+                            hour: '18:00:45',
+                            text: 'Stasera calcetto ricordati vez...',
+                            status: 'received'
                         }
                     ],
                 },
                 {
-                    name: 'Alessia Pellegrini',
+                    name: 'Alessia Mancinetti',
                     imgSrc: 'img/alessiadonb.jpg',
                     visible: true,
                     messages: [
@@ -106,14 +141,14 @@ function initVue() {
                             deleted: false,
                             date: '10/01/21',
                             hour: '15:30:55',
-                            text: 'Lo sai che ha aperto una nuova pizzeria?',
+                            text: 'Ciao bella, stai bene?',
                             status: 'sent'
                         },
                         {
                             deleted: false,
                             date: '10/01/21',
                             hour: '15:50:00',
-                            text: 'Si, ma preferirei andare al cinema',
+                            text: 'Si, tutto appost! E tu?',
                             status: 'received'
                         }
                     ],
@@ -181,6 +216,7 @@ function initVue() {
             // Finestra rimuovi messagio compare
             deleteMsg: function (ms) {
                 ms.deleted = true;
+                // this.scrollToBottom;
             },
             // Finestra rimuovi messagio scompare
             renewedMsg: function (ms) {
@@ -205,8 +241,8 @@ function initVue() {
                 }
                 return format;
             },
-            scrollToBottom() {
-                const container = this.$el.querySelector("ul.clearfix");
+            scrollToBottom: function(){
+                const container = this.$el.querySelector(".chat ul");
                 container.scrollTop = container.scrollHeight;
             }
         }

@@ -28,7 +28,12 @@
         <header>
             <!-- Sezione profilo -->
             <section class="profile">
-                <img src="img/profile.jpg" alt="Profile image">
+                <div>
+                    <img src="img/profile.jpg" alt="Profile image">
+                    <span>not.Martino</span>
+
+                </div>
+
                 <div class="head-icons">
                     <i class="fas fa-circle-notch"></i>
                     <i class="fas fa-comment-alt"></i>
@@ -47,7 +52,7 @@
                 <ul>
                     <li v-for="(contact, index) in research()" @click="selectedChat(contact, index)">
                         <img :src="contact.imgSrc" :alt="contact.name">
-        
+
                         <div>
                             <div class="name-text">
                                 <h4>
