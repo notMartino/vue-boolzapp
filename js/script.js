@@ -184,7 +184,8 @@ function initVue() {
                 this.indexUser = index;
             },
             // Funzione di risposta automatica
-            answer: function () {
+            answer: function (utente) {
+
                 let moment = new Date();
                 let date = `${moment.getDate()}/${(moment.getMonth() + 1)}/${moment.getFullYear().toString().slice(2)}`;  
                 let hour = `${this.formatDate(moment.getHours())}:${this.formatDate(moment.getMinutes())}:${this.formatDate(moment.getSeconds())}`;
@@ -193,8 +194,9 @@ function initVue() {
                 let status = 'received';
                 let deleted = false;
 
-                this.user.messages.push({date, hour, text, status, deleted});
-                console.log(this.user.messages);
+                setTimeout(function () {
+                    utente.messages.push({date, hour, text, status, deleted});
+                }, 2000);
             },
             // Funzione invio messaggio
             enterMsgs: function () {
@@ -210,7 +212,9 @@ function initVue() {
                     this.user.messages.push({date, hour, text, status, deleted});
                     console.log(this.user.messages);
                     this.enterMsg = '';
-                    setTimeout(this.answer, 2000);
+
+                    let utente = this.user;
+                    this.answer(utente);
                 }
             },
             // Finestra rimuovi messagio compare
